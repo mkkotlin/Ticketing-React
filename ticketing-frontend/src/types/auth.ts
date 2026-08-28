@@ -5,7 +5,7 @@ export interface LoginResponse{
 
 export interface User{
     id: number
-    usernmae: string
+    username: string
     email: string
     role: "CUSTOMER" | "AGENT" | "ADMIN"
     is_active: boolean

@@ -1,50 +1,52 @@
 import { useAuth } from "../context/AuthContext"
 
-function AdminDashboard() {
-    return (
-        <div style={{ padding: "20px" }}>
-            <h1>Admin Dashboard</h1>
-            <p>Welcome to the Administrator panel. You have full access to manage users, configurations, and all tickets.</p>
-        </div>
-    )
-}
 
-function AgentDashboard() {
-    return (
-        <div style={{ padding: "20px" }}>
-            <h1>Agent Dashboard</h1>
-            <p>Welcome to the Agent panel. You can manage, assign, and update tickets assigned to you.</p>
-        </div>
-    )
-}
 
-function CustomerDashboard() {
-    return (
-        <div style={{ padding: "20px" }}>
-            <h1>Customer Dashboard</h1>
-            <p>Welcome to the Customer Support portal. Here you can submit new tickets and track your existing ones.</p>
-        </div>
-    )
-}
 
 export default function Dashboard() {
-    const { user, loading } = useAuth()
+    const { user } = useAuth()
 
-    if (loading) {
-        return (
-            <div style={{ padding: "20px" }}>
-                <p>Loading Dashboard...</p>
-            </div>
-        )
-    }
 
     switch (user?.role) {
         case "ADMIN":
-            return <AdminDashboard />
+            return <>
+                <div style={{ padding: "20px" }}>
+                    <h1>
+                        {user?.username}
+                        <sup style={{ fontSize: "0.4em", marginLeft: "6px", color: "#ef4444", verticalAlign: "super" }}>
+                            Admin
+                        </sup>{" "}
+                        Dashboard
+                    </h1>
+                    <p>Welcome to the Administrator panel. You have full access to manage users, configurations, and all tickets.</p>
+                </div>
+            </>
         case "AGENT":
-            return <AgentDashboard />
+            return <>
+                <div style={{ padding: "20px" }}>
+                    <h1>
+                        {user?.username}
+                        <sup style={{ fontSize: "0.4em", marginLeft: "6px", color: "#f59e0b", verticalAlign: "super" }}>
+                            Agent
+                        </sup>{" "}
+                        Dashboard
+                    </h1>
+                    <p>Welcome to the Agent panel. You can manage and update tickets assigned to you.</p>
+                </div>
+            </>
         case "CUSTOMER":
         default:
-            return <CustomerDashboard />
+            return <>
+                <div style={{ padding: "20px" }}>
+                    <h1>
+                        {user?.username}
+                        <sup style={{ fontSize: "0.4em", marginLeft: "6px", color: "#10b981", verticalAlign: "super" }}>
+                            Customer
+                        </sup>{" "}
+                        Dashboard
+                    </h1>
+                    <p>Welcome to the Customer Support portal. Here you can submit new tickets and track your existing ones.</p>
+                </div>
+            </>
     }
 }

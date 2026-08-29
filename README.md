@@ -1,5 +1,11 @@
 # 🎫 FastReactTicket Frontend
 
+![React 19](https://img.shields.io/badge/React-19-blue?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-purple?logo=vite&logoColor=white)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
+
 Welcome to the frontend application for the **FastReactTicket** System—a modern, responsive, and robust ticketing and support platform built with **React**, **TypeScript**, and **Vite**.
 
 This application provides customized dashboards and workflows for **Customers**, **Agents**, and **Administrators** to report, manage, and resolve tickets efficiently.

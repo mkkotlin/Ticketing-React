@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"
 
 
 
 
 export default function Dashboard() {
-    const { user } = useAuth()
+    const { user, logout } = useAuth()
+
+    const navigate = useNavigate()
+    const handleLogout = () =>{
+        logout()
+        navigate("/login")
+    }
 
 
     switch (user?.role) {
@@ -20,6 +27,7 @@ export default function Dashboard() {
                     </h1>
                     <p>Welcome to the Administrator panel. You have full access to manage users, configurations, and all tickets.</p>
                 </div>
+                <button onClick={handleLogout}>Logout</button>
             </>
         case "AGENT":
             return <>
@@ -33,6 +41,7 @@ export default function Dashboard() {
                     </h1>
                     <p>Welcome to the Agent panel. You can manage and update tickets assigned to you.</p>
                 </div>
+                <button onClick={handleLogout}>Logout</button>
             </>
         case "CUSTOMER":
         default:
@@ -47,6 +56,7 @@ export default function Dashboard() {
                     </h1>
                     <p>Welcome to the Customer Support portal. Here you can submit new tickets and track your existing ones.</p>
                 </div>
+                <button onClick={handleLogout}>Logout</button>
             </>
     }
 }

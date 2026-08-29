@@ -8,6 +8,7 @@ import TicketDetail from "../pages/TicketDetail"
 import NotFound from "../pages/NotFound"
 import ProtectedRoute from "./ProtectRoute"
 import RoleRoute from "./RoleRoute"
+import CreateTicket from "../pages/CreateTicket";
 
 export default function AppRoutes(){
     return (
@@ -22,6 +23,7 @@ export default function AppRoutes(){
                     <Route path="/dashboard" element={<Dashboard/>} />
                     <Route path="/tickets" element={<Tickets/>} />
                     <Route path="/tickets/:id" element={<TicketDetail/>} />
+                    <Route path="/tickets/new" element={<CreateTicket />} />
                     {/* Admin */}
                     <Route element={ <RoleRoute allowedRoles={["ADMIN"]}/>}>
                     {/* Admin page here */}

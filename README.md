@@ -14,18 +14,20 @@ This application provides customized dashboards and workflows for **Customers**,
 
 ## 📸 Screenshots
 
-> [!TIP]
-> To display screenshots, save your images in a directory (e.g., `docs/screenshots/`) and update the paths below.
-
-| Login & Authentication | Customer Dashboard |
+| Customer Dashboard | Agent Dashboard |
 | :---: | :---: |
-| ![Login Screenshot](./docs/screenshots/login.png) | ![Customer Dashboard Screenshot](./docs/screenshots/customer_dashboard.png) |![alt text](image-1.png) 
-| *Secure Login and Role-Based Redirection* | *View, filter, and track support tickets* |
+| ![Customer Dashboard](./ticketing-frontend/screenshots/cutomer%20dashboard.png) | ![Agent Dashboard](./ticketing-frontend/screenshots/agent%20dashboard.png) |
+| *View, filter, and track support tickets* | *View assigned tickets and update status* |
 
-| Ticket Details & Comments | Admin Panel |
+| Admin Dashboard | Ticket Action & Comments |
 | :---: | :---: |
-| ![Ticket Details Screenshot](./docs/screenshots/ticket_details.png) | ![Admin Panel Screenshot](./docs/screenshots/admin_dashboard.png) |![alt text](image.png)
-| *Real-time updates, status changes, and discussions* | *Manage tickets, assign agents, and view metrics* |
+| ![Admin Dashboard](./ticketing-frontend/screenshots/admin%20dashboard.png) | ![Ticket Comment](./ticketing-frontend/screenshots/ticket%20action%20comment.png) |
+| *Assign agents and manage ticket flow* | *Interactive comment section and collaboration* |
+
+| Ticket Action Details |
+| :---: |
+| ![Ticket Details](./ticketing-frontend/screenshots/ticket%20action%20ss.png) |
+| *Status and priority selection* |
 
 ---
 

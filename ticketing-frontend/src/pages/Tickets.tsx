@@ -21,7 +21,7 @@ export default function Tickets(){
                 const data = await getTickets(page, 10)
 
                 setTickets(data.items)
-                setTotalPages(data.total_pages)
+                setTotalPages(data.pages)
             } catch {
                 setError("Unable to load tickets")
             } finally{

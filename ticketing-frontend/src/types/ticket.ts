@@ -32,8 +32,8 @@ export interface TicketListResponse{
     items: Ticket[]
     total: number
     page: number
-    page_size: number
-    total_pages: number
+    limit: number
+    pages: number
 }
 
 

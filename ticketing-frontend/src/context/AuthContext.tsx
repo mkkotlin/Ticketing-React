@@ -29,6 +29,10 @@ export function AuthProvider({
                 setLoading(false)
                 return
             }
+            if (user) {
+                setLoading(false)
+                return
+            }
             try{
                 const currentUser = await getCurrentUser();
 
@@ -41,12 +45,12 @@ export function AuthProvider({
             }
         }
         restoreSession();
-    }, [token]);
+    }, [token, user]);
     async function loginUser(newToken: string){
         localStorage.setItem("access_token", newToken)
-        setToken(newToken)
         const currentUser = await getCurrentUser();
         setUser(currentUser)
+        setToken(newToken)
     }
     function logout(){
         localStorage.removeItem("access_token")

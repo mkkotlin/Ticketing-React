@@ -1,10 +1,12 @@
 import api from "./axios"
 import type { Ticket, TicketCreate, TicketListResponse, Comment, TicketStatus } from "../types/ticket"
 
-export async function getTickets(page: number = 1, pageSize: number = 10): Promise<TicketListResponse>{
+export async function getTickets(page: number = 1, pageSize: number = 10, status?: TicketStatus): Promise<TicketListResponse>{
     const response = await api.get<TicketListResponse>("/tickets", {
         params:{
-            page, page_size: pageSize,
+            page, 
+            limit: pageSize,
+            status
         },
     })
     return response.data

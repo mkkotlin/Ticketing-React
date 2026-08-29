@@ -57,3 +57,9 @@ export interface Comment{
         username: string
     }
 }
+
+export interface Category {
+  id: number;
+  name: string;
+  description?: string;
+}

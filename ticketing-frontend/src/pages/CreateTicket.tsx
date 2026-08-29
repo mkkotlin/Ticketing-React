@@ -1,8 +1,9 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { createTicket } from "../api/ticketApi";
-import type { TicketPriority } from "../types/ticket";
+import { getCategories } from "../api/categoryApi";
+import type { TicketPriority, Category } from "../types/ticket";
 
 export default function CreateTicket() {
   const navigate = useNavigate();
@@ -19,6 +20,30 @@ export default function CreateTicket() {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [categories, setCategories] =
+    useState<Category[]>([]);
+
+  const [categoriesLoading, setCategoriesLoading] =
+    useState(true);
+
+  useEffect(() => {
+    async function loadCategories() {
+      try {
+        const data = await getCategories();
+
+        setCategories(data);
+      } catch {
+        setError(
+          "Unable to load categories"
+        );
+      } finally {
+        setCategoriesLoading(false);
+      }
+    }
+
+    loadCategories();
+  }, []);
 
   async function handleSubmit(
     event: FormEvent
@@ -92,23 +117,49 @@ export default function CreateTicket() {
         </div>
 
         <div>
-          <label>Category ID</label>
+          <label>Category</label>
 
-          <input
-            type="number"
+          <select
             value={categoryId}
             onChange={(e) =>
               setCategoryId(e.target.value)
             }
             required
-          />
+            disabled={categoriesLoading}
+          >
+            <option value="">
+              {categoriesLoading
+                ? "Loading categories..."
+                : "Select category"}
+            </option>
+
+            {categories.map((category) => (
+              <option
+                key={category.id}
+                value={category.id}
+              >
+                {category.name}
+              </option>
+            ))}
+          </select>
         </div>
+
+        {!categoriesLoading &&
+          categories.length === 0 && (
+            <p style={{ color: "var(--danger-color)" }}>
+              No categories available.
+            </p>
+          )}
 
         {error && <p>{error}</p>}
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={
+            loading ||
+            categoriesLoading ||
+            categories.length === 0
+          }
         >
           {loading
             ? "Creating..."

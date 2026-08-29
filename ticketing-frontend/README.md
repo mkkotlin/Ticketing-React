@@ -1,73 +1,151 @@
-# React + TypeScript + Vite
+# 🎫 FastReactTicket Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the frontend application for the **FastReactTicket** System—a modern, responsive, and robust ticketing and support platform built with **React**, **TypeScript**, and **Vite**.
 
-Currently, two official plugins are available:
+This application provides customized dashboards and workflows for **Customers**, **Agents**, and **Administrators** to report, manage, and resolve tickets efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> [!TIP]
+> To display screenshots, save your images in a directory (e.g., `docs/screenshots/`) and update the paths below.
 
-## Expanding the ESLint configuration
+| Login & Authentication | Customer Dashboard |
+| :---: | :---: |
+| ![Login Screenshot](./docs/screenshots/login.png) | ![Customer Dashboard Screenshot](./docs/screenshots/customer_dashboard.png) |
+| *Secure Login and Role-Based Redirection* | *View, filter, and track support tickets* |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Ticket Details & Comments | Admin Panel |
+| :---: | :---: |
+| ![Ticket Details Screenshot](./docs/screenshots/ticket_details.png) | ![Admin Panel Screenshot](./docs/screenshots/admin_dashboard.png) |
+| *Real-time updates, status changes, and discussions* | *Manage tickets, assign agents, and view metrics* |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Key Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+*   🔐 **Role-Based Authentication**: Secure login and registration with automatic role redirection (`Customer`, `Agent`, `Admin`).
+*   📊 **Dynamic Dashboards**:
+    *   **Customer Portal**: Submit tickets, track progress, and communicate with support agents.
+    *   **Agent Workspace**: View assigned tickets, update ticket statuses, and respond to customers.
+    *   **Admin Console**: Comprehensive ticket overview, agent assignments, and global status/priority control.
+*   💬 **Interactive Ticket Activity**: Detail-oriented ticket page featuring live commenting and status selector tools.
+*   ⚡ **Lightning-Fast Performance**: Built on top of **Vite** for near-instantaneous Hot Module Replacement (HMR) and optimized build bundles.
+*   🛡️ **TypeScript Safety**: Fully typed application components, routes, and API responses.
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+*   **Framework**: [React 19](https://react.dev/)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **Build Tool**: [Vite 8](https://vite.dev/)
+*   **Routing**: [React Router DOM v7](https://reactrouter.com/)
+*   **API Client**: [Axios](https://axios-http.com/)
+*   **Styles**: Custom Vanilla CSS for modularity and custom design theme
+
+---
+
+## 📂 Project Structure
+
+```text
+ticketing-frontend/
+├── public/                 # Static assets
+└── src/
+    ├── api/                # API communication layers (axios, endpoints)
+    │   ├── authApi.ts      # Authentication endpoints
+    │   ├── ticketApi.ts    # Ticket management endpoints
+    │   └── userApi.ts      # User management endpoints
+    ├── assets/             # Images, fonts, and global assets
+    ├── components/         # Reusable UI components
+    │   ├── AdminDashboard.tsx
+    │   ├── AgentDashboard.tsx
+    │   ├── CustomerDashboard.tsx
+    │   ├── CommentSection.tsx
+    │   ├── StatusSelector.tsx
+    │   └── Navbar.tsx
+    ├── context/            # Auth and global state contexts
+    │   └── AuthContext.tsx
+    ├── pages/              # Page layouts & container components
+    │   ├── Login.tsx
+    │   ├── Register.tsx
+    │   ├── Dashboard.tsx
+    │   ├── Tickets.tsx
+    │   ├── TicketDetail.tsx
+    │   └── CreateTicket.tsx
+    ├── routes/             # App routing and route-guards
+    │   ├── AppRouters.tsx  # Centralized router definition
+    │   ├── ProtectRoute.tsx # Auth protection filter
+    │   └── RoleRoute.tsx   # Role verification filter
+    ├── types/              # Type definitions
+    ├── App.tsx             # App shell wrapper
+    ├── index.css           # Global theme & styles
+    └── main.tsx            # Main application entrypoint
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 📋 Prerequisites
+
+Before running the application, make sure you have the following installed:
+*   [Node.js](https://nodejs.org/) (v18.0.0 or higher recommended)
+*   [npm](https://www.npmjs.com/) (usually comes with Node.js)
+
+### 1. Installation
+
+Clone the repository and navigate to the frontend directory:
+
+```bash
+cd ticketing-frontend
+npm install
 ```
+
+### 2. Configuration
+
+Create a `.env` file in the root of the `ticketing-frontend` folder (or edit the existing one):
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+> [!NOTE]
+> Ensure this URL matches the host and port where your backend service/API is running.
+
+### 3. Run the Development Server
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at [http://localhost:5173/](http://localhost:5173/) (or the port specified by Vite in the terminal).
+
+### 4. Build for Production
+
+To create an optimized production bundle:
+
+```bash
+npm run build
+```
+
+This compiles your assets and generates static files inside the `dist/` directory, ready to be hosted on Netlify, Vercel, or any other web server.
+
+### 5. Linting
+
+Run the linter to verify code style and quality:
+
+```bash
+npm run lint
+```
+
+---
+
+## 🔒 Security and Route Guards
+
+The frontend uses specialized route wrappers to enforce permissions:
+*   **ProtectedRoute**: Blocks unauthenticated requests and redirects users to `/login`.
+*   **RoleRoute**: resticts pages to users with specific roles (e.g., `["ADMIN"]` or `["AGENT", "ADMIN"]`).

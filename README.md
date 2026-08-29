@@ -19,12 +19,12 @@ This application provides customized dashboards and workflows for **Customers**,
 
 | Login & Authentication | Customer Dashboard |
 | :---: | :---: |
-| ![Login Screenshot](./docs/screenshots/login.png) | ![Customer Dashboard Screenshot](./docs/screenshots/customer_dashboard.png) |
+| ![Login Screenshot](./docs/screenshots/login.png) | ![Customer Dashboard Screenshot](./docs/screenshots/customer_dashboard.png) |![alt text](image-1.png) 
 | *Secure Login and Role-Based Redirection* | *View, filter, and track support tickets* |
 
 | Ticket Details & Comments | Admin Panel |
 | :---: | :---: |
-| ![Ticket Details Screenshot](./docs/screenshots/ticket_details.png) | ![Admin Panel Screenshot](./docs/screenshots/admin_dashboard.png) |
+| ![Ticket Details Screenshot](./docs/screenshots/ticket_details.png) | ![Admin Panel Screenshot](./docs/screenshots/admin_dashboard.png) |![alt text](image.png)
 | *Real-time updates, status changes, and discussions* | *Manage tickets, assign agents, and view metrics* |
 
 ---

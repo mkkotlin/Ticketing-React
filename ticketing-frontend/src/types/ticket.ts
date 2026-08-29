@@ -13,6 +13,19 @@ export interface Ticket {
     assigned_to_id: number | null
     created_at: string
     updated_at: string
+
+    category?:{
+        id: number
+        name: String
+    }
+    created_by?:{
+        id: number
+        username: string
+    }
+    assigned_to?:{
+        id: number
+        username: string
+    } | null;
 }
 
 export interface TicketListResponse{
@@ -29,4 +42,18 @@ export interface TicketCreate{
     description: string
     priority: TicketPriority
     category_id: number
+}
+
+
+export interface Comment{
+    id: number
+    ticket_id: number
+    user_id: number
+    content: string
+    created_at: string
+
+    user?:{
+        id: number
+        username: string
+    }
 }

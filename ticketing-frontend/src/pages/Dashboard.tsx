@@ -8,7 +8,7 @@ export default function Dashboard() {
     const { user, logout } = useAuth()
 
     const navigate = useNavigate()
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logout()
         navigate("/login")
     }
